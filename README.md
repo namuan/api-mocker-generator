@@ -1,5 +1,8 @@
 # Api-Mocker-Generator
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/c221df53ac279d0b767f/maintainability)](https://codeclimate.com/github/namuan/api-mocker-generator/maintainability)
+[![CircleCI](https://circleci.com/gh/namuan/fuzzy-swagger.svg?style=svg)](https://circleci.com/gh/namuan/fuzzy-swagger)
+
 [API Mocker](https://github.com/gstroup/apimocker) config and test data generator based on Swagger/OpenAPI Spec.
 
 ## Installation
