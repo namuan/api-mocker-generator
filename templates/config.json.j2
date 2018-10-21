@@ -1,0 +1,33 @@
+{
+    "mockDirectory": "./mock",
+    "quiet": false,
+    "port": "8080",
+    "basepath": "{{base_path}}",
+    "latency": 50,
+    "logRequestHeaders": true,
+    "webServices": {
+        {% for p in paths %}"{{ p.path }}": {
+            "verbs": [{% for jm in p.just_methods %}"{{jm}}"{%- if not loop.last -%},{% endif %}{% endfor %}],
+            "responses": {
+                {% for m in p.methods %}
+                    {% for r in m.responses %}
+                        {% if r.http_status_code != 'default' %}
+                            "{{m.http_method}}": {"httpStatus": {{r.http_status_code}}
+                            {% if r.response_mock_file != None %}
+                            , "mockFile": "{{r.response_mock_file}}"
+                            {% endif %}
+                            }
+                            {%- if not loop.last -%},{% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {%- if not loop.last -%},{% endif %}
+                {% endfor %}
+            },
+            "switchResponses": {
+                "userIduser1passwordgood": {"httpStatus": 200, "mockFile": "king.json"},
+                "userIdadminpasswordgood": {"httpStatus": 200}
+            }
+        }{%- if not loop.last -%},{% endif %}
+        {% endfor %}
+    }
+}

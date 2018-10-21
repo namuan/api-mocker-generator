@@ -11,16 +11,29 @@
 $ pip install api-mocker-generator
 ```
 
-## Example Usage
+## Usage
 
 ```
-$ api-mocker-generator --swagger http://localhost:8080/api-docs
+usage: local_main.py [-h] --swagger SWAGGER --output OUTPUT [--verbose]
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --swagger SWAGGER  Location of swagger document. Could be HTTP endpoint or
+                     local file system
+  --output OUTPUT    Output directory for configuration and mocked responses
+  --verbose
 ```
 
-## Running locally
+Example command
 
 ```
-$ python local_main.py --swagger http://localhost:8080/api-docs
+$ api-mocker-generator --swagger http://localhost:8080/api-docs --output ./out
+```
+
+## Running locally during development
+
+```
+$ python local_main.py --swagger http://localhost:8080/api-docs --output ./out
 ```
 
 ## Verbose debugging

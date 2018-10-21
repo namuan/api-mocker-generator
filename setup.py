@@ -3,12 +3,6 @@ import os
 import re
 from setuptools import setup, find_packages
 
-# 'setup.py publish-test' shortcut
-if sys.argv[-1] == 'publish-test':
-    os.system('rm -r dist/*')
-    os.system('python setup.py sdist')
-    os.system('twine upload -r pypitest dist/*')
-    sys.exit()
 # 'setup.py publish' shortcut
 if sys.argv[-1] == 'publish':
     os.system('rm -r dist/*')
@@ -24,6 +18,7 @@ version = re.search("^__version__\s*=\s*'(.*)'",
 try:
     # in addition to pip install pypandoc, might have to: apt install -y pandoc
     import pypandoc
+
     long_description = pypandoc.convert('README.md', 'rst')
 except (IOError, ImportError, OSError) as e:
     print("Error converting READMD.md to rst:", str(e))
@@ -50,7 +45,6 @@ setup(name='api-mocker-generator',
           'Natural Language :: English',
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python',
-          'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.6',
       ]
