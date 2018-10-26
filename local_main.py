@@ -1,2 +1,2 @@
-from src import __main__
+from api_mocker_generator import __main__
 

@@ -1,1 +1,2 @@
+include api_mocker_generator/templates/config.json.j2
 include requirements.txt

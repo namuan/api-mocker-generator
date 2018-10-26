@@ -12,7 +12,7 @@ if sys.argv[-1] == 'publish':
 
 # read the version number from source
 version = re.search("^__version__\s*=\s*'(.*)'",
-                    open('src/api_mocker_generator.py').read(), re.M).group(1)
+                    open('api_mocker_generator/api_mocker_generator.py').read(), re.M).group(1)
 
 # Get the long description from the relevant file
 try:
@@ -32,11 +32,16 @@ setup(name='api-mocker-generator',
       author='Nauman Leghari',
       author_email='nauman@docker-files.com',
       url='https://github.com/namuan/api-mocker-generator',
-      install_requires=[],
+      install_requires=[
+          "prance",
+          "jinja2",
+          "uni-slugify"
+      ],
       packages=find_packages(exclude=['pypandoc']),
+      include_package_data=True,
       entry_points={
           "console_scripts": [
-              'api-mocker-generator=src.api_mocker_generator:main'
+              'api-mocker-generator=api_mocker_generator.api_mocker_generator:main'
           ]
       },
       license='MIT',
