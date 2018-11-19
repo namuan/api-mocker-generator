@@ -33,6 +33,7 @@ setup(name='api-mocker-generator',
       author_email='nauman@docker-files.com',
       url='https://github.com/namuan/api-mocker-generator',
       install_requires=[
+          "requests",
           "prance",
           "jinja2",
           "uni-slugify"
